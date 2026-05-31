@@ -1,7 +1,7 @@
-// Interactive Script for Agent-X Marketing Hub
+// Modern Scripting for Agent-X Marketing Hub
 
 document.addEventListener("DOMContentLoaded", () => {
-    initTerminal();
+    initSandbox();
     initCaptchaDemo();
     initComparisonTabs();
     initQuickStartTabs();
@@ -10,105 +10,190 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 1. Simulated Interactive Terminal Script
+// 1. Scraper Sandbox Simulator
 // ==========================================
-const TERMINAL_SCENARIOS = [
-    {
-        target: "https://www.target-store.com/offers",
-        proxy: "185.220.101.42:3128 [US - New York]",
-        steps: [
-            { text: "python main.py --headed --mcp-port 8001", type: "input" },
-            { text: "[SYSTEM] Booting Agent-X Stealth Core Server...", type: "info" },
-            { text: "[DATABASE] Connected to agent_os.db (timeout=30.0s locked-safe)", type: "success" },
-            { text: "[STEALTH] Aliasing standard Playwright calls to Patchright namespace", type: "success" },
-            { text: "[PROXY] Shielding Local IP... Loaded residential pool. Active: 185.220.101.42", type: "info" },
-            { text: "[BROWSER] Launching Stealth Chromium Headless Engine (BoringSSL TLS spoofed)", type: "success" },
-            { text: "[BROWSER] Navigating to https://www.target-store.com/offers", type: "info" },
-            { text: "[WAF] Cloudflare Managed Challenge Detected! Initializing bypass engine...", type: "warning" },
-            { text: "[STEALTH] Applying GodMode CDP Injector...", type: "success" },
-            { text: "[HUMAN] Mimicking mouse hover coordinates (X: 142, Y: 382) with random jitter", type: "info" },
-            { text: "[CAPTCHA] Local Solver (ddddocr) scanning image challenges...", type: "info" },
-            { text: "[CAPTCHA] Success: Text match found: 'x8f7a'. Injecting input...", type: "success" },
-            { text: "[WAF] Challenge solved! Cloudflare clearance cookie cached successfully.", type: "success" },
-            { text: "[BROWSER] Page fully loaded. Executing DOM extractor 'page-structured'...", type: "info" },
-            { text: "[RESULT] Extracted 42 items. Status Code: 200", type: "success" },
-            { text: "{\n  \"status\": \"success\",\n  \"data\": [\n    { \"id\": 1, \"item\": \"MacBook Air\", \"price\": \"$999\" },\n    { \"id\": 2, \"item\": \"iPad Pro\", \"price\": \"$799\" }\n  ]\n}", type: "success" }
-        ]
-    },
-    {
-        target: "https://github.com/login",
-        proxy: "192.168.1.1 [LOCAL IP - SAFETY WARNING]",
-        steps: [
-            { text: "python main.py --setup", type: "input" },
-            { text: "[SETUP] Launching Interactive Setup Wizard...", type: "info" },
-            { text: "[WARNING] Running browser on Local IP (No proxy configured). Bot detection risk HIGH.", type: "warning" },
-            { text: "[BROWSER] Navigating to https://github.com/login", type: "info" },
-            { text: "[AUTH] Fetching encrypted credentials for domain 'github.com'...", type: "info" },
-            { text: "[AUTH] AES-256 Decryption successful for user: dev-admin", type: "success" },
-            { text: "[BROWSER] Injecting credentials & mimicking keyboard keystroke speeds...", type: "success" },
-            { text: "[BROWSER] Submitting form...", type: "info" },
-            { text: "[SUCCESS] Login complete. Session cookies written to default.enc", type: "success" }
-        ]
+function initSandbox() {
+    const btnScrape = document.getElementById("btn-sandbox-scrape");
+    const inputUrl = document.getElementById("sandbox-url");
+    const viewport = document.getElementById("viewport-screen");
+    const consoleLogs = document.getElementById("sandbox-console-logs");
+    const btnClear = document.getElementById("btn-clear-console");
+
+    if (!btnScrape || !inputUrl || !viewport || !consoleLogs) return;
+
+    // Clear console logs
+    if (btnClear) {
+        btnClear.addEventListener("click", () => {
+            consoleLogs.innerHTML = '<div class="con-line text-muted">// Console logs cleared. Ready...</div>';
+        });
     }
-];
 
-async function initTerminal() {
-    const screen = document.getElementById("terminal-screen");
-    if (!screen) return;
+    btnScrape.addEventListener("click", async () => {
+        // Prevent double click
+        btnScrape.disabled = true;
+        inputUrl.disabled = true;
+        const targetUrl = inputUrl.value.trim() || "https://example.com";
 
-    let scenarioIndex = 0;
-
-    while (true) {
-        screen.innerHTML = "";
-        const scenario = TERMINAL_SCENARIOS[scenarioIndex];
+        // Initial Reset
+        consoleLogs.innerHTML = "";
         
-        for (const step of scenario.steps) {
-            const line = document.createElement("div");
-            line.className = "terminal-line";
-            
-            if (step.type === "input") {
-                line.innerHTML = `<span class="t-prompt">$</span> `;
-                screen.appendChild(line);
-                
-                // Type character by character for prompt simulation
-                for (let i = 0; i < step.text.length; i++) {
-                    line.innerHTML += step.text[i];
-                    await sleep(35);
-                }
-            } else {
-                line.textContent = step.text;
-                // Add styling class
-                if (step.type === "info") line.className += " t-info";
-                else if (step.type === "success") line.className += " t-success";
-                else if (step.type === "warning") line.className += " t-warning";
-                else if (step.type === "error") line.className += " t-error";
-                
-                // Format multi-line JSON cleanly
-                if (step.text.startsWith("{")) {
-                    line.style.whiteSpace = "pre";
-                }
-                
-                screen.appendChild(line);
-                await sleep(step.text.startsWith("{") ? 800 : 250);
-            }
-            
-            // Auto scroll to bottom
-            screen.scrollTop = screen.scrollHeight;
+        // --- 1. Navigation Phase ---
+        writeLog(consoleLogs, `[BOOT] Initiating Agent-X stealth worker...`, "info");
+        await sleep(400);
+        writeLog(consoleLogs, `[DATABASE] Read-Lock verify on agent_os.db: OK`, "success");
+        await sleep(300);
+        writeLog(consoleLogs, `[PROXY] Shielding Local IP... Geolocation cache: valid`, "info");
+        await sleep(300);
+        
+        // Random proxy IP
+        const randomIP = `185.${randInt(10, 250)}.${randInt(1, 254)}.${randInt(1, 254)}`;
+        writeLog(consoleLogs, `[PROXY] Rotating IP... Connected to: ${randomIP}:3128 [US-West residential]`, "success");
+        await sleep(500);
+        
+        writeLog(consoleLogs, `[BROWSER] Launching Patchright Chromium browser context...`, "info");
+        await sleep(400);
+        writeLog(consoleLogs, `[STEALTH] navigator.webdriver patched to undefined`, "success");
+        writeLog(consoleLogs, `[STEALTH] Audio & Canvas WebGL fingerprint signatures randomized`, "success");
+        await sleep(400);
+
+        // Update Viewport to Navigating Loader
+        viewport.innerHTML = `
+            <div class="scrape-simulation-wrapper">
+                <div class="sim-loader">
+                    <div class="spinner"></div>
+                    <div class="sim-loading-title">Navigating...</div>
+                    <div class="sim-loading-desc">${targetUrl}</div>
+                </div>
+            </div>
+        `;
+        writeLog(consoleLogs, `[BROWSER] Connecting to: ${targetUrl}`, "info");
+        await sleep(1500);
+
+        // --- 2. Challenge / WAF Bypass Phase ---
+        writeLog(consoleLogs, `[WAF] Cloudflare Turnstile Challenge Detected!`, "warning");
+        await sleep(400);
+        writeLog(consoleLogs, `[STEALTH] Applying GodMode CDP Script Injectors...`, "success");
+        await sleep(300);
+        writeLog(consoleLogs, `[HUMAN] Computing mouse vector paths...`, "info");
+
+        // Render Cloudflare check challenge in Viewport
+        viewport.innerHTML = `
+            <div class="scrape-simulation-wrapper">
+                <div class="waf-challenge-box">
+                    <div class="waf-logo">Cloudflare</div>
+                    <div class="waf-title">Verifying your browser...</div>
+                    <div class="waf-desc">Please check the box below to verify you are human.</div>
+                    
+                    <div class="waf-interactive-checkbox" id="waf-checkbox">
+                        <div class="check-ring" id="waf-ring"></div>
+                        <div class="check-label">I am human</div>
+                        <!-- Simulated Cursor -->
+                        <div class="cursor-pointer-sim" id="sim-cursor"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        await sleep(600);
+
+        // Run cursor mouse mimicry animation
+        const cursor = document.getElementById("sim-cursor");
+        const checkbox = document.getElementById("waf-checkbox");
+        const ring = document.getElementById("waf-ring");
+
+        if (cursor && checkbox && ring) {
+            // Mouse pointer animation coords
+            cursor.style.top = "-80px";
+            cursor.style.left = "-180px";
+            cursor.style.opacity = "1";
+            await sleep(200);
+
+            // Move cursor to checkbox coordinates smoothly
+            cursor.style.top = "12px";
+            cursor.style.left = "18px";
+            writeLog(consoleLogs, `[HUMAN] Mouse trace path: cursor moving to coordinates (168, 240)`, "info");
+            await sleep(1300);
+
+            // Click action
+            cursor.style.transform = "scale(0.85)";
+            ring.style.borderColor = "var(--accent-cyan)";
+            ring.style.background = "rgba(0, 240, 255, 0.1)";
             await sleep(150);
+            cursor.style.transform = "none";
+            
+            // Checkmark verified
+            ring.style.borderColor = "var(--accent-green)";
+            ring.style.background = "rgba(57, 255, 20, 0.1)";
+            ring.innerHTML = `<span style="color: var(--accent-green); font-size: 0.8rem; font-weight: bold;">✓</span>`;
+            
+            writeLog(consoleLogs, `[CAPTCHA] Simulated click registered. Challenge verified.`, "success");
+            await sleep(400);
+            writeLog(consoleLogs, `[WAF] Cookie cf_clearance cached. Bypass complete in 2.15s.`, "success");
         }
-        
-        // Wait before starting the next scenario loop
-        await sleep(5000);
-        scenarioIndex = (scenarioIndex + 1) % TERMINAL_SCENARIOS.length;
-    }
+        await sleep(1000);
+
+        // --- 3. Scrape Success & Output Phase ---
+        writeLog(consoleLogs, `[BROWSER] Page DOM fully parsed. Scraping data fields...`, "info");
+        await sleep(600);
+        writeLog(consoleLogs, `[RESULT] Extracted reviews & structured parameters. Success (Code 200)`, "success");
+
+        // Format Date
+        const dateStr = new Date().toISOString();
+        const mockJSON = {
+            status: "success",
+            target_url: targetUrl,
+            scraped_at: dateStr,
+            proxy_routing: `${randomIP}:3128`,
+            security_bypass: "Cloudflare Turnstile",
+            page_data: {
+                title: "Agent-X Developer Reviews",
+                rating: "4.95 / 5.00",
+                source: "G2 Review Platform",
+                extracted_reviews: [
+                    { reviewer: "alex_dev_99", comment: "The Patchright engine is flawless. Bypassed Cloudflare turnstile instantly.", stars: 5 },
+                    { reviewer: "scraping_lead", comment: "We migrated our scrapers from Selenium to Agent-X. Server load dropped by 40% and zero write lock failures.", stars: 5 }
+                ]
+            }
+        };
+
+        // Render json output inside viewport
+        viewport.innerHTML = `
+            <div class="json-result-pane">
+                <div class="json-header">
+                    <span>OUTPUT DATA EXTRACT</span>
+                    <span>JSON FORMAT</span>
+                </div>
+                <pre><code style="color: #52b788;">${JSON.stringify(mockJSON, null, 2)}</code></pre>
+            </div>
+        `;
+
+        writeLog(consoleLogs, `[SYSTEM] Browser worker context closed. Idle.`, "info");
+
+        // Enable inputs back
+        btnScrape.disabled = false;
+        inputUrl.disabled = false;
+    });
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function writeLog(container, text, type) {
+    const line = document.createElement("div");
+    line.className = "con-line";
+    
+    if (type === "info") line.className += " con-info";
+    else if (type === "success") line.className += " con-success";
+    else if (type === "warning") line.className += " con-warning";
+    else if (type === "error") line.className += " con-error";
+
+    line.textContent = text;
+    container.appendChild(line);
+    container.scrollTop = container.scrollHeight;
+}
+
+function randInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // ==========================================
-// 2. Interactive CAPTCHA Demo Animation
+// 2. Interactive CAPTCHA Demo Loop
 // ==========================================
 function initCaptchaDemo() {
     const cells = document.querySelectorAll(".grid-cell");
@@ -119,9 +204,8 @@ function initCaptchaDemo() {
 
     setInterval(() => {
         if (cycle === 0) {
-            // Reset
             cells.forEach(c => c.classList.remove("select-active"));
-            logs.innerHTML = '<div class="cap-line">> Captcha detected. Processing...</div>';
+            logs.innerHTML = '<div class="cap-line">> Captcha challenge detected. Processing...</div>';
             
             setTimeout(() => {
                 logs.innerHTML += '<div class="cap-line">> Analyzing image features (Vision ML)...</div>';
@@ -129,7 +213,6 @@ function initCaptchaDemo() {
 
             cycle = 1;
         } else if (cycle === 1) {
-            // Select Grid Cells
             cells[1].classList.add("select-active");
             logs.innerHTML += '<div class="cap-line">> Selecting coordinate cell #2...</div>';
             
@@ -140,9 +223,8 @@ function initCaptchaDemo() {
             
             cycle = 2;
         } else {
-            // Verify
             setTimeout(() => {
-                logs.innerHTML += '<div class="cap-line success">> Solutions matched. Clicking bypass...</div>';
+                logs.innerHTML += '<div class="cap-line success">> Solutions matched cell grids (2, 4). Clicking (142, 385)...</div>';
             }, 400);
 
             setTimeout(() => {
@@ -213,7 +295,6 @@ function setupCopyAction(btnId, textToCopy) {
             btn.textContent = "Copied! ✓";
             btn.classList.add("copied");
 
-            // Telemetry trigger mock log
             trackClick("copy_quickstart", btnId);
 
             setTimeout(() => {
@@ -227,7 +308,7 @@ function setupCopyAction(btnId, textToCopy) {
 }
 
 // ==========================================
-// 6. Analytics & Referral Telemetry Mocking
+// 6. Analytics & Referral Telemetry Tracking
 // ==========================================
 function initAnalyticsTracking() {
     const ctas = [
@@ -255,13 +336,9 @@ function trackClick(eventType, elementId) {
         url: window.location.href
     };
     
-    // Log telemetry parameters to show how we track conversion campaigns
     console.info("[TELEMETRY] Logging conversion event:", payload);
-    
-    // In a live server scenario, we would trigger an anonymous fetch call:
-    // fetch("https://analytics.agentx.dev/api/v1/event", {
-    //     method: "POST",
-    //     body: JSON.stringify(payload),
-    //     headers: { "Content-Type": "application/json" }
-    // }).catch(() => {});
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
