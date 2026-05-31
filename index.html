@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agent-X is an open-source stealth AI browser automation engine. Bypass Cloudflare, solve captchas offline, and connect LLMs directly to the live web via MCP/SSE.">
+    <meta name="keywords" content="Stealth browser automation, bypass Cloudflare, open-source AI browser, Patchright Playwright, captcha solver, headless browser scraping">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unknownsorcerer007.github.io/Agent-X/">
+    <meta property="og:title" content="Agent-X — Open Source Stealth AI Browser Engine">
+    <meta property="og:description" content="Bypass Cloudflare, solve captchas offline, and connect LLMs directly to the live web. Designed for stealth and high-volume web operations.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/unknownsorcerer007/Agent-X/main/docs/assets/banner.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Agent-X — Open Source Stealth AI Browser Engine">
+    <meta property="twitter:description" content="Bypass Cloudflare, solve captchas offline, and connect LLMs directly to the live web. Built for developers.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <title>Agent-X — Open Source Stealth AI Browser Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background glowing graphics -->
+    <div class="grid-glow-wrapper">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-accent">&lt;</span>Agent<span class="logo-x">[X]</span><span class="logo-accent">&gt;</span>
+        </div>
+        <nav class="nav">
+            <a href="#features">Features</a>
+            <a href="#stealth">Stealth Engine</a>
+            <a href="#quickstart">Quick Start</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://github.com/unknownsorcerer007/Agent-X?utm_source=gh-pages&utm_campaign=header_cta" id="cta_header_github" class="btn btn-secondary github-btn" target="_blank">
+                <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                Star on GitHub
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="badge">v2.0 Stable Release</div>
+                <h1>The Ultimate Stealth <span class="highlight">AI Browser</span> Operator</h1>
+                <p class="subtitle">Bypass Cloudflare, solve captchas offline, and connect LLMs directly to the live web via standard MCP/SSE servers. Zero configuration, maximum stealth.</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/unknownsorcerer007/Agent-X?utm_source=gh-pages&utm_campaign=hero_primary" id="cta_hero_github" class="btn btn-primary" target="_blank">Clone Repository</a>
+                    <a href="#quickstart" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+
+            <!-- Interactive Terminal Showcase -->
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">agent-x@operator:~/browser-engine</div>
+                    <div class="terminal-badge">Stealth Active</div>
+                </div>
+                <div class="terminal-body" id="terminal-screen">
+                    <!-- Lines will be dynamically generated by JS -->
+                    <div class="terminal-line"><span class="t-prompt">$</span> python main.py --headed</div>
+                    <div class="terminal-line t-info">[SYSTEM] Initializing Agent-X Stealth Core...</div>
+                    <div class="terminal-line t-success">[SYSTEM] Loaded anti-detection engine v2.0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Bento Grid Section -->
+        <section id="features" class="bento-section">
+            <div class="section-title-wrapper">
+                <h2>Designed for High-Volume Automation</h2>
+                <p>Powerful core systems combined into a unified, secure browser controller.</p>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- Card 1: Dual CAPTCHA Solver -->
+                <div class="bento-card card-double">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">⚡</div>
+                    <h3>Dual-Engine CAPTCHA Solver</h3>
+                    <p>Bypass visual and interactive challenges without expensive API keys. Combined offline OCR with local Vision model parsing for pixel-perfect coordinates.</p>
+                    
+                    <div class="captcha-demo-widget">
+                        <div class="captcha-img-box">
+                            <span class="captcha-tag">ddddocr Local Engine</span>
+                            <div class="captcha-grid-sim">
+                                <div class="grid-cell" data-index="1"></div>
+                                <div class="grid-cell select-active" data-index="2">✓</div>
+                                <div class="grid-cell" data-index="3"></div>
+                                <div class="grid-cell select-active" data-index="4">✓</div>
+                            </div>
+                        </div>
+                        <div class="captcha-logs">
+                            <div class="cap-line">> Captcha detected. Processing...</div>
+                            <div class="cap-line success">> Solution coordinates found. Clicking (142, 385)...</div>
+                            <div class="cap-line success">> Challenge bypassed!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: SQLite Locked Safe -->
+                <div class="bento-card">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🔒</div>
+                    <h3>SQLite Concurrency Protection</h3>
+                    <p>Modified database driver settings prevent SQLite write locks during simultaneous asynchronous sessions. Fully handles parallel worker requests without database locking crashes.</p>
+                </div>
+
+                <!-- Card 3: Dynamic MCP Server -->
+                <div class="bento-card">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🔌</div>
+                    <h3>Dynamic MCP Server Ports</h3>
+                    <p>Run multiple Agent-X services side-by-side. Customize and expose dedicated ports dynamically through CLI parameters or your env wizard settings.</p>
+                </div>
+
+                <!-- Card 4: Proxy Guard -->
+                <div class="bento-card card-double">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">🛡️</div>
+                    <h3>Proxy Guard & Local IP Shield</h3>
+                    <p>Prevent DNS and IP leakage. Prompts and stores paid proxy variables into environment configurations and displays visual terminal warnings if running on local IP addresses.</p>
+                    <div class="proxy-comparison-sim">
+                        <div class="proxy-stat-card shield-danger">
+                            <h4>Local IP Fallback</h4>
+                            <div class="stat-status">UNPROTECTED</div>
+                            <p class="stat-desc">Browser runs on local server IP address. Safe only for local testing.</p>
+                        </div>
+                        <div class="proxy-stat-card shield-success">
+                            <h4>Paid Proxy Engine</h4>
+                            <div class="stat-status">ACTIVE</div>
+                            <p class="stat-desc">Residential Proxy rotation, TLS headers synced, DNS leaks fully shielded.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stealth Comparison Section -->
+        <section id="stealth" class="stealth-comparison-section">
+            <div class="section-title-wrapper">
+                <h2>Playwright vs. Patchright Stealth</h2>
+                <p>Standard Playwright gets caught instantly. Agent-X patches the core runtime parameters.</p>
+            </div>
+            
+            <div class="comparison-container">
+                <div class="comparison-tabs">
+                    <button class="comp-tab active" data-type="playwright">Standard Playwright</button>
+                    <button class="comp-tab" data-type="patchright">Patchright (Agent-X)</button>
+                </div>
+                
+                <div class="comparison-content">
+                    <div class="comparison-panel active" id="panel-playwright">
+                        <div class="panel-header">
+                            <span class="indicator danger"></span> Standard Browser Automation Context
+                        </div>
+                        <ul class="comparison-list">
+                            <li>❌ <code>navigator.webdriver</code> evaluates to <code>true</code>.</li>
+                            <li>❌ Chromium CDP headers expose standard automation parameters.</li>
+                            <li>❌ Instantly blocked by Cloudflare turnstile and Datadome challenges.</li>
+                            <li>❌ Unmasked TLS fingerprints mismatch client HTTP signatures.</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-panel" id="panel-patchright">
+                        <div class="panel-header">
+                            <span class="indicator success"></span> Stealth Patchright Redirect Engine
+                        </div>
+                        <ul class="comparison-list">
+                            <li>✅ <code>navigator.webdriver</code> fully spoofed as <code>undefined</code>.</li>
+                            <li>✅ Dynamic browser profiles automatically rotate fingerprints, Sec-Ch-UA, and WebGL specs.</li>
+                            <li>✅ Bypasses security challenges using visual mouse mimicked clicks.</li>
+                            <li>✅ Synchronized BoringSSL TLS fingerprint signatures.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section id="quickstart" class="quickstart-section">
+            <div class="section-title-wrapper">
+                <h2>Quick Onboarding</h2>
+                <p>Install and start running in less than two minutes.</p>
+            </div>
+
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="windows">Windows</button>
+                    <button class="tab-btn" data-tab="docker">Docker Stack</button>
+                    <button class="tab-btn" data-tab="linux">Linux / MacOS</button>
+                </div>
+                
+                <div class="tabs-body">
+                    <!-- Windows -->
+                    <div class="tab-pane active" id="tab-windows">
+                        <p class="tab-desc">Install all dependencies, virtual environments, offline solver libraries, and launch the setup wizard automatically:</p>
+                        <div class="code-box">
+                            <span class="code-comment"># Open PowerShell and run the installer script</span>
+                            <pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/unknownsorcerer007/Agent-X/main/install.ps1'))</code></pre>
+                            <button class="copy-btn" id="btn-copy-win">Copy Command</button>
+                        </div>
+                    </div>
+
+                    <!-- Docker -->
+                    <div class="tab-pane" id="tab-docker">
+                        <p class="tab-desc">Launch the full service suite including Redis, Postgres, and the Agent-X server instances in containers:</p>
+                        <div class="code-box">
+                            <span class="code-comment"># Clone and pull the compose configuration</span>
+                            <pre><code>docker compose up -d</code></pre>
+                            <button class="copy-btn" id="btn-copy-docker">Copy Command</button>
+                        </div>
+                    </div>
+
+                    <!-- Linux / MacOS -->
+                    <div class="tab-pane" id="tab-linux">
+                        <p class="tab-desc">Run the automatic installation and verification bash script:</p>
+                        <div class="code-box">
+                            <span class="code-comment"># Download and execute setup.sh</span>
+                            <pre><code>curl -sSL https://raw.githubusercontent.com/unknownsorcerer007/Agent-X/main/setup.sh | bash</code></pre>
+                            <button class="copy-btn" id="btn-copy-linux">Copy Command</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Callout Banner -->
+        <section class="cta-banner">
+            <div class="cta-card">
+                <h2>Ready to unlock the web?</h2>
+                <p>Equip your AI Agents with the browser access they deserve. Free, open source, and lightweight.</p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/unknownsorcerer007/Agent-X?utm_source=gh-pages&utm_campaign=cta_banner" id="cta_banner_github" class="btn btn-primary" target="_blank">Star on GitHub</a>
+                    <a href="https://github.com/unknownsorcerer007/Agent-X#features" class="btn btn-secondary" target="_blank">Explore Documentation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col-main">
+                <div class="logo">Agent<span class="logo-x">[X]</span></div>
+                <p class="footer-desc">Next-generation stealth browser control interface for agents, crawlers, and AI systems.</p>
+            </div>
+            <div class="footer-col">
+                <h4>GitHub Links</h4>
+                <a href="https://github.com/unknownsorcerer007/Agent-X/issues" target="_blank">Issue Tracker</a>
+                <a href="https://github.com/unknownsorcerer007/Agent-X/pulls" target="_blank">Pull Requests</a>
+                <a href="https://github.com/unknownsorcerer007/Agent-X/releases" target="_blank">Releases</a>
+            </div>
+            <div class="footer-col">
+                <h4>Ecosystem</h4>
+                <a href="https://github.com/unknownsorcerer007/Agent-X#mcp-server-connectors" target="_blank">MCP Connector</a>
+                <a href="https://github.com/unknownsorcerer007/Agent-X#python-connector" target="_blank">Python Client</a>
+                <a href="https://github.com/unknownsorcerer007/Agent-X#http-endpoints" target="_blank">HTTP API</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Agent-X Team. Code licensed under MIT License. Maintained by <a href="https://github.com/unknownsorcerer007" target="_blank">unknownsorcerer007</a>.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
